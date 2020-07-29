@@ -9,11 +9,11 @@ class LoginPage extends StatelessWidget {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.green[100],
-      body: _createBody(size),
+      body: _createBody(size, context),
     );
   }
 
-  SafeArea _createBody(Size size) {
+  SafeArea _createBody(Size size, BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Container(
@@ -22,7 +22,7 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               _createHeader(size),
-              _createForm(size),
+              _createForm(size, context),
             ],
           ),
         ),
@@ -30,7 +30,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _createForm(Size size) {
+  Widget _createForm(Size size, BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20),
       // color: Colors.purple,
@@ -51,14 +51,14 @@ class LoginPage extends StatelessWidget {
             ),
             SizedBox(height: 10),
             _cretateButtonForgetPassword(),
-            _createButtonSubmit(size),
+            _createButtonSubmit(size, context),
           ],
         ),
       ),
     );
   }
 
-  Widget _createButtonSubmit(Size size) {
+  Widget _createButtonSubmit(Size size, BuildContext context) {
     return Container(
       width: size.width * 0.80,
       child: RaisedButton(
@@ -68,6 +68,10 @@ class LoginPage extends StatelessWidget {
         child: Text('INGRESAR', style: TextStyle(color: Colors.white)),
         onPressed: () {
           print('Ingreso');
+          // no regresa a la pagina anterior
+          Navigator.pushReplacementNamed(context, 'home');
+          //regresa a la pagina anterior
+          // Navigator.pushNamed(context, 'home');
         },
       ),
     );

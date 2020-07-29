@@ -5,13 +5,15 @@ class CreateCustomField extends StatelessWidget {
   final IconData icon;
   final String text;
   final TextInputType type;
+  final bool enabled;
 
   const CreateCustomField(
       {Key key,
       this.obscure = false,
       @required this.icon,
       @required this.text,
-      @required this.type})
+      @required this.type,
+      this.enabled = true})
       : super(key: key);
 
   @override
@@ -23,6 +25,7 @@ class CreateCustomField extends StatelessWidget {
         color: Colors.white,
       ),
       child: TextFormField(
+        enabled: enabled,
         textAlign: TextAlign.center,
         obscureText: obscure,
         style: TextStyle(color: Colors.black),
