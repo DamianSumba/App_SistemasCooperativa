@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loguin_sistema_coop/src/widgets/create_custom_field.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key key}) : super(key: key);
@@ -37,10 +38,17 @@ class LoginPage extends StatelessWidget {
       child: Form(
         child: Column(
           children: [
-            _createField(
-                'Email', false, TextInputType.emailAddress, Icons.email),
+            CreateCustomField(
+                icon: Icons.email,
+                text: 'email',
+                type: TextInputType.emailAddress),
             SizedBox(height: 10),
-            _createField('Password', true, TextInputType.text, Icons.vpn_key),
+            CreateCustomField(
+              icon: Icons.vpn_key,
+              text: 'password',
+              type: TextInputType.text,
+              obscure: true,
+            ),
             SizedBox(height: 10),
             _cretateButtonForgetPassword(),
             _createButtonSubmit(size),
@@ -88,42 +96,6 @@ class LoginPage extends StatelessWidget {
         height: size.height * 0.30,
         // color: Colors.red,
         child: Image.asset('assets/imaLogo.png'),
-      ),
-    );
-  }
-
-  Widget _createField(
-      String text, bool obscure, TextInputType type, IconData icon) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 10),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20.0),
-        color: Colors.white,
-      ),
-      child: TextFormField(
-        textAlign: TextAlign.center,
-        obscureText: obscure,
-        style: TextStyle(color: Colors.black),
-        decoration: InputDecoration(
-          icon: CircleAvatar(
-            backgroundColor: Colors.green[100],
-            child: Icon(
-              icon,
-              color: Colors.white,
-            ),
-          ),
-          hintStyle: TextStyle(color: Colors.black),
-          hintText: text,
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: Colors.white),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(20),
-            borderSide: BorderSide(color: Colors.white),
-          ),
-        ),
-        keyboardType: type,
       ),
     );
   }
