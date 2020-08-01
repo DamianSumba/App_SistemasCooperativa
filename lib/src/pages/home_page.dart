@@ -49,7 +49,13 @@ class HomePage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     _createButton(Icons.credit_card, 'Créditos', () {}),
-                    _createButton(Icons.settings, 'Configuraciones', () {}),
+                    _createButton(
+                      Icons.settings,
+                      'Configuraciones',
+                      () {
+                        Navigator.pushNamed(context, 'setting');
+                      },
+                    ),
                   ],
                 ),
               ],

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:loguin_sistema_coop/src/pages/home_page.dart';
 import 'package:loguin_sistema_coop/src/pages/login_page.dart';
+import 'package:loguin_sistema_coop/src/pages/setting_page.dart';
 import 'package:loguin_sistema_coop/src/pages/transfer_page.dart';
 
 void main() => runApp(MyApp());
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
         'login': (BuildContext context) => LoginPage(),
         'home': (BuildContext context) => HomePage(),
         'transfer': (BuildContext context) => TransferPage(),
+        'setting': (BuildContext context) => SettingPage()
       },
       initialRoute: 'login',
     );
